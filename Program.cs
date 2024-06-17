@@ -14,6 +14,10 @@ builder.Services.AddCors(options=>{
     options.AddPolicy("AllowAnyOrigin",builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 });
 
+//Registrar AutoMapper y sus perfiles
+
+services.AddAutoMapper(typeof(MarketingUpdateProfile));
+
 // Config DB
 builder.Services.AddDbContext<CuponesContext>(options =>
     options.UseMySql(builder.Configuration.GetConnectionString("CuponesConnection"),
