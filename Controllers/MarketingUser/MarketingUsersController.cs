@@ -5,7 +5,7 @@ using Cupones.Services;
 namespace Cupones.AddControllers
 {
     [ApiController]
-    [Route("api/[Controller]")]
+    [Route("api/marketingusers")]
     
     public class MarketingUsersController : ControllerBase
     {

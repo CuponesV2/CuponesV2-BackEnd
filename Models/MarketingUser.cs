@@ -6,16 +6,16 @@ namespace Cupones.Models
     public class MarketingUser
     {
         [Required]
-        public int id { get; set; }
+        public int Id { get; set; }
 
         [Required]
-        public string? username { get; set; }
+        public string? Username { get; set; }
 
         [Required]
-        public string? password { get; set; }
+        public string? Password { get; set; }
 
         [Required]
-        public string? email { get; set; }
+        public string? Email { get; set; }
 
         [JsonIgnore]
         public List<UserRole>? UserRoles { get; set; }

@@ -15,12 +15,18 @@ namespace Cupones.Services
 
         public IEnumerable<MarketingUser> GetAll()
         {
-            return _context.MarketingUser.ToList();
+            return _context.MarketingUsers.ToList();
         }
 
         public MarketingUser GetOne(int id)
         {
-            return _context.MarketingUser.Find(id);
+            return _context.MarketingUsers.Find(id);
+        }
+
+        public void Create(MarketingUser marketingUser)
+        {
+            _context.MarketingUsers.Add(marketingUser);
+            _context.SaveChanges();
         }
     }
 }
