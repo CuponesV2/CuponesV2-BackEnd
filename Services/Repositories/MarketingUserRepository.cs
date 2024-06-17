@@ -1,16 +1,21 @@
 using Microsoft.EntityFrameworkCore;
 using Cupones.Data;
 using Cupones.Models;
+using AutoMapper;
+using Cupones.Dtos;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Cupones.Services
 {
     public class MarketingUserRepository : IMarketingUserRepository
     {
         private readonly CuponesContext _context;
+        private readonly IMapper _mapper;
 
-        public MarketingUserRepository(CuponesContext context)
+        public MarketingUserRepository(CuponesContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         public IEnumerable<MarketingUser> GetAll()
@@ -28,5 +33,8 @@ namespace Cupones.Services
             _context.MarketingUsers.Add(marketingUser);
             _context.SaveChanges();
         }
+        
+       
     }
 }
+

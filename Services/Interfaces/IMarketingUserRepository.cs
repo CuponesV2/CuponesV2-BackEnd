@@ -1,4 +1,6 @@
 using Cupones.Models;
+using Microsoft.AspNetCore.Mvc;
+using Cupones.Dtos;
 
 namespace Cupones.Services
 {
@@ -7,5 +9,6 @@ namespace Cupones.Services
         public IEnumerable<MarketingUser> GetAll();
         public MarketingUser GetOne(int id);
         public void Create(MarketingUser marketingUser);
+
     }
 }
