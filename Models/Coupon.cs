@@ -48,8 +48,8 @@ namespace Cupones.Models
         [Required]
         public int CampaignId { get; set; }
 
-        public Campaign? Campaign { get; set; }
-
+/*         public Campaign? Campaign { get; set; }
+ */
         [JsonIgnore]
         public List<CouponHistory>? CouponHistory { get; set; }
 
