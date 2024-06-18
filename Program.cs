@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Cupones.Utils;
+using Cupones.Utils;
 
 /* Página de Slack para crear la agregación del canal --> Slack api create app */
 

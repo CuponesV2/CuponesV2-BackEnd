@@ -16,6 +16,7 @@ namespace Cupones.Services
         {
             _context = context;
         }
+
          public void Create(int coupon_id, CouponHistory couponHistory)
 {
     // Encuentra el cupón existente por ID.
@@ -57,6 +58,7 @@ namespace Cupones.Services
     // Guarda los cambios en la base de datos.
     _context.SaveChanges();
 }
+
     }
 }
 
