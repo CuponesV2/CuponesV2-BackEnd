@@ -46,7 +46,7 @@ namespace Cupones.AddControllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, $"Error al obtener el usuario de marketing con id {id}: {ex.Message}");
+                return StatusCode(500, $"Error al obtener el usuario de marketplace con id {id}: {ex.Message}");
             }
         }
     }

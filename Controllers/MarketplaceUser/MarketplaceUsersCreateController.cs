@@ -21,7 +21,7 @@ namespace Cupones.AddControllers
         {
             if (marketplaceUser == null)
             {
-                return BadRequest("El usuario de marketing no puede ser nulo");
+                return BadRequest("El usuario de marketplace no puede ser nulo");
             }
             try
             {
@@ -30,7 +30,7 @@ namespace Cupones.AddControllers
 
             } catch (Exception ex)
             {
-                return StatusCode(500, $"Error al crear el usuario de marketing: {ex.Message}");
+                return StatusCode(500, $"Error al crear el usuario de marketplace: {ex.Message}");
             }
         }
     }
