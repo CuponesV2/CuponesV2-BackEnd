@@ -34,7 +34,18 @@ namespace Cupones.Services
             _context.SaveChanges();
         }
         
-       
+        public IActionResult Update(int id, MarketingUserDto marketingUserDto)
+        {
+            var marketingUser = _context.MarketingUsers.Find(id);
+            if (marketingUser == null)
+            {
+                return new NotFoundResult();
+            }
+            _mapper.Map(marketingUserDto, marketingUser);
+            _context.SaveChanges();
+            
+            return new OkObjectResult(marketingUser);
+        }
     }
 }
 
