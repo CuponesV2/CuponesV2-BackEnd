@@ -5,6 +5,24 @@ namespace Cupones.Models
 {
     public class CouponHistory
     {
-        
+        [Required]
+        public int Id { get; set; }
+
+        [Required]
+        public int CouponId { get; set; }
+
+        [Required]
+        public DateOnly Change_date { get; set; }
+
+        [Required]
+        public string Field_Changed { get; set; }
+
+        [Required]
+        public string Old_Value { get; set; }
+
+        [Required]
+        public string New_Value { get; set; }
+
     }
 }
+
