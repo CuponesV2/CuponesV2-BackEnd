@@ -23,5 +23,6 @@ namespace Cupones.Data
 
         public DbSet<PurchaseCoupon> PurchaseCoupons { get; set; }
 
+        public DbSet<Company> Companies { get; set; }
     }
 }

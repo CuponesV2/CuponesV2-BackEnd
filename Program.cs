@@ -32,6 +32,7 @@ builder.Services.AddDbContext<CuponesContext>(options =>
 // Scopes de los servicios
 builder.Services.AddScoped<IMarketingUserRepository, MarketingUserRepository>();
 builder.Services.AddScoped<IMarketplaceUserRepository, MarketplaceUserRepository>();
+builder.Services.AddScoped<ICompanyRepository, CompanyRepository>();
 
 // Builder para JWT con el token
 builder.Services.AddAuthentication(opt =>

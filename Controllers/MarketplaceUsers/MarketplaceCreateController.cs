@@ -9,11 +9,11 @@ namespace Cupones.AddControllers
     [Route("api/marketplaceUsers/create")]
     [Authorize]
     
-    public class MarketplaceUsersCreateController : ControllerBase
+    public class MarketplaceCreateController : ControllerBase
     {
         private readonly IMarketplaceUserRepository _marketplaceUserRepository;
 
-        public MarketplaceUsersCreateController(IMarketplaceUserRepository marketplaceUserRepository)
+        public MarketplaceCreateController(IMarketplaceUserRepository marketplaceUserRepository)
         {
             _marketplaceUserRepository = marketplaceUserRepository;
         }
