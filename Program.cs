@@ -2,6 +2,9 @@ using Microsoft.EntityFrameworkCore;
 using Cupones.Data;
 using Cupones.Services;
 using AutoMapper;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
@@ -27,6 +30,23 @@ builder.Services.AddDbContext<CuponesContext>(options =>
 builder.Services.AddScoped<IMarketingUserRepository, MarketingUserRepository>();
 builder.Services.AddScoped<IMarketplaceUserRepository, MarketplaceUserRepository>();
 
+// Builder para JWT con el token
+builder.Services.AddAuthentication(opt => {
+    opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(configure =>{
+    configure.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = @Environment.GetEnvironmentVariable("jwtVar"), 
+        ValidAudience = @Environment.GetEnvironmentVariable("jwtVar"),
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("3C7A6C4E2754B9A31F225E201C02D82E"))                
+    };
+});
+
 var app = builder.Build();
 
 // Cors
@@ -39,9 +59,14 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+//Permisos para el JWT del dataConection
+app.UseAuthentication();
+app.UseAuthorization();
+
+// Para enviar el correo
 app.UseHttpsRedirection();
 
-// Controllers
+// Middlewares
 app.MapControllers();
 
 app.Run();
