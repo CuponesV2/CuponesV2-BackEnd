@@ -139,8 +139,8 @@ CREATE TABLE CouponUsages (
     Id INT AUTO_INCREMENT PRIMARY KEY,
     Coupon_id INT,
     UserMarketplace_id INT,
-    usage_date Date,
-    transaction_amount INT,
+    Usage_date Date,
+    Transaction_amount INT,
     Foreign Key (Coupon_id) REFERENCES Coupons (Id),
     Foreign Key (UserMarketplace_id) REFERENCES MarketplaceUsers (Id)
 );
