@@ -1,12 +1,13 @@
 using Microsoft.AspNetCore.Mvc;
 using Cupones.Models;
 using Cupones.Services;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Cupones.AddControllers
 {
     [ApiController]
-
     [Route("api/couponhistories")]
+    [Authorize]
 
     public class CouponHistoryController : ControllerBase
     {

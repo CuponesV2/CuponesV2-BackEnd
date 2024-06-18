@@ -4,8 +4,8 @@ using Cupones.Services;
 
 namespace Cupones.AddControllers
 {
-    // [ApiController]
-    // [Route("api/marketingusers")]
+    [ApiController]
+    [Route("api/marketingusers")]
 
     public class MarketingUsersController : ControllerBase
     {
@@ -37,7 +37,6 @@ namespace Cupones.AddControllers
             try
             {
                 var marketingUser = _marketingUserRepository.GetOne(id);
-
                 if (marketingUser == null)
                 {
                     return NotFound($"Usuario de marketing con id {id} no encontrado");
@@ -61,7 +60,6 @@ namespace Cupones.AddControllers
             }
             catch (Exception ex)
             {
-
                 await _slackNotifier.NotifyAsync(message + ex.StackTrace);
                 return StatusCode(StatusCodes.Status500InternalServerError, "Error al enviar el mensaje");
             }

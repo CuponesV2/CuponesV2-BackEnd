@@ -1,11 +1,13 @@
 using Microsoft.AspNetCore.Mvc;
 using Cupones.Dtos;
 using Cupones.Services;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Cupones.AddControllers
 {
     [ApiController]
     [Route("api/marketingusers/update")]
+    [Authorize]
     public class MarketingUpdateController : ControllerBase
     {
         private readonly IMarketingUserRepository _marketingUserRepository;

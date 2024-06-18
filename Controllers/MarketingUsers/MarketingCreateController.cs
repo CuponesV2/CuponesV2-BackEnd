@@ -12,14 +12,16 @@ namespace Cupones.AddControllers
     public class MarketingCreateController : ControllerBase
     {
         private readonly IMarketingUserRepository _marketingUserRepository;
+        private readonly SlackNotifier _slackNotifier;
 
-        public MarketingCreateController(IMarketingUserRepository marketingUserRepository)
+        public MarketingCreateController(IMarketingUserRepository marketingUserRepository, SlackNotifier slackNotifier)
         {
             _marketingUserRepository = marketingUserRepository;
+            _slackNotifier = slackNotifier;
         }
 
         [HttpPost]
-        public IActionResult CreateMarketingUser(MarketingUser marketingUser)
+        public async Task<IActionResult> CreateMarketingUser(MarketingUser marketingUser)
         {
             if (marketingUser == null)
             {
@@ -32,6 +34,7 @@ namespace Cupones.AddControllers
 
             } catch (Exception ex)
             {
+                await _slackNotifier.NotifyAsync(ex.StackTrace);
                 return StatusCode(500, $"Error al crear el usuario de marketing: {ex.Message}");
             }
         }
