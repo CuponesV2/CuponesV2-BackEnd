@@ -26,6 +26,7 @@ builder.Services.AddDbContext<CuponesContext>(options =>
 // Scopes de los servicios
 builder.Services.AddScoped<IMarketingUserRepository, MarketingUserRepository>();
 builder.Services.AddScoped<IMarketplaceUserRepository, MarketplaceUserRepository>();
+builder.Services.AddScoped<ICompanyRepository, CompanyRepository>();
 
 var app = builder.Build();
 
