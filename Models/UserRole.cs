@@ -15,6 +15,6 @@ namespace Cupones.Models
         [Required]
         public int role_id { get; set; }
 
-        public Role Role { get; set; }
+        public Role? Role { get; set; }
     }
 }

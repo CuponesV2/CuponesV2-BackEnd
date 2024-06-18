@@ -8,7 +8,11 @@ namespace Cupones.Data
         public CuponesContext(DbContextOptions<CuponesContext> options) : base(options) {}
 
         public DbSet<Role> Roles { get; set; }
+
         public DbSet<MarketingUser> MarketingUsers { get; set; }
+
         public DbSet<UserRole> UserRole { get; set; }
+
+        public DbSet<MarketplaceUser> MarketplaceUsers { get; set; }
     }
 }
