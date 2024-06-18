@@ -1,11 +1,13 @@
 using Microsoft.AspNetCore.Mvc;
 using Cupones.Models;
 using Cupones.Services;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Cupones.AddControllers
 {
     [ApiController]
     [Route("api/marketplaceUsers/create")]
+    [Authorize]
     
     public class MarketplaceUsersCreateController : ControllerBase
     {

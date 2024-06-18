@@ -1,4 +1,6 @@
 using AutoMapper;
+using Cupones.Dtos;
+using Cupones.Models;
 
 public class MarketingUpdateProfile : Profile
 {
