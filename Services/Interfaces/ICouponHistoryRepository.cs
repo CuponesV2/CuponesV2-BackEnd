@@ -6,7 +6,7 @@ namespace Cupones.Services
 {
     public interface ICouponHistoryRepository
     {
-        public void Create(int couponId, CouponHistory couponHistory);
+        public void Create(int coupon_id, CouponHistory couponHistory);
         
     }
 }

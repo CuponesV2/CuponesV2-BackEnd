@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Cupones.Services
 {
-    public class CouponHistoryRepository
+    public class CouponHistoryRepository : ICouponHistoryRepository
     {
         private readonly CuponesContext _context;
 
