@@ -16,5 +16,12 @@ namespace Cupones.Data
         public DbSet<MarketplaceUser> MarketplaceUsers { get; set; }
 
         public DbSet<Coupon> Coupons { get; set; }
+
+        public DbSet<CouponUsage> CouponUsages { get; set; }
+
+        public DbSet<CouponHistory> CouponHistories { get; set; }
+
+        public DbSet<PurchaseCoupon> PurchaseCoupons { get; set; }
+
     }
 }

@@ -114,7 +114,7 @@ CREATE TABLE Coupons (
 );
 
 -- Creación de CouponHistory
-CREATE TABLE CouponHistory(
+CREATE TABLE CouponHistories(
     Id INT AUTO_INCREMENT PRIMARY KEY,
     Coupon_id INT,
     Change_date Date,
@@ -123,6 +123,7 @@ CREATE TABLE CouponHistory(
     New_value Varchar(100),
     FOREIGN KEY (Coupon_id) REFERENCES Coupons (Id)
 );
+
 
 -- Creación de MarketplaceUsers
 CREATE TABLE MarketplaceUsers (
@@ -134,7 +135,7 @@ CREATE TABLE MarketplaceUsers (
 
 
 -- Creación de CouponUsage
-CREATE TABLE CouponUsage (
+CREATE TABLE CouponUsages (
     Id INT AUTO_INCREMENT PRIMARY KEY,
     Coupon_id INT,
     UserMarketplace_id INT,
@@ -143,6 +144,7 @@ CREATE TABLE CouponUsage (
     Foreign Key (Coupon_id) REFERENCES Coupons (Id),
     Foreign Key (UserMarketplace_id) REFERENCES MarketplaceUsers (Id)
 );
+
 
 -- Creación de Purchase
 CREATE TABLE Purchases (
@@ -154,7 +156,7 @@ CREATE TABLE Purchases (
 );
 
 -- Creación de PurchaseCoupon
-CREATE TABLE PurchaseCoupon (
+CREATE TABLE PurchaseCoupons (
     Id INT AUTO_INCREMENT PRIMARY KEY,
     Purchase_id INT,
     Coupon_id INT,
