@@ -16,4 +16,7 @@ public class Company
 
     [Required]
     public required string Nit { get; set; }
+
+    [JsonIgnore]
+    public List<Campaign>? Campaigns { get; set; }
 }
