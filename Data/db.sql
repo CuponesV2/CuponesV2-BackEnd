@@ -164,4 +164,44 @@ CREATE TABLE PurchaseCoupons (
     Foreign Key (Coupon_id) REFERENCES Coupons (Id)
 );
 
+-- Insertar datos en la tabla Campaigns
+INSERT INTO Campaigns (Name, Description, Start_date, End_date, CompanyId)
+VALUES
+    ('Summer Sale', 'Discounts on summer items', '2023-06-01', '2023-08-31', 1),
+    ('Winter Collection', 'New arrivals for winter', '2023-11-01', '2024-02-28', 2);
 
+-- Insertar datos en la tabla Coupons
+INSERT INTO Coupons (Name, Description, Start_date, End_date, Discount_type, Discount_value, Usage_limit, Min_purchase_amount, Max_purchase_amount, Status, Created_By, Code, CampaignId)
+VALUES
+    ('SUMMER20', '20% off on summer sale', '2023-06-01', '2023-08-31', 'Porcentaje', 20, 100, 500, 5000, 'Activo', 1, 'SUM2023', 1),
+    ('WINTER10', '10% off on all winter items', '2023-11-01', '2024-02-28', 'Porcentaje', 10, 50, 300, 3000, 'Activo', 2, 'WIN2023', 2);
+
+-- Insertar datos en la tabla MarketplaceUsers
+INSERT INTO MarketplaceUsers (UserName, Password, Email)
+VALUES
+    ('User1', 'password1', 'user1@example.com'),
+    ('User2', 'password2', 'user2@example.com');
+
+-- Insertar datos en la tabla Purchases
+INSERT INTO Purchases (UserMarketplace_id, Date, Amount)
+VALUES
+    (1, '2023-06-15', 1000),
+    (2, '2023-11-20', 1500);
+
+-- Insertar datos en la tabla PurchaseCoupons
+INSERT INTO PurchaseCoupons (Purchase_id, Coupon_id)
+VALUES
+    (1, 1),
+    (2, 2);
+
+-- Insertar datos en la tabla CouponUsages
+INSERT INTO CouponUsages (Coupon_id, UserMarketplace_id, Usage_date, Transaction_amount)
+VALUES
+    (1, 1, '2023-06-15', 800),
+    (2, 2, '2023-11-20', 1350);
+
+-- Insertar datos en la tabla CouponHistories
+INSERT INTO CouponHistories (Coupon_id, Change_date, Field_changed, Old_value, New_value)
+VALUES
+    (1, '2023-06-10', 'Discount_value', '15', '20'),
+    (2, '2023-11-15', 'Usage_limit', '40', '50');

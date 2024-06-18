@@ -15,10 +15,10 @@ public class Campaign
     public required string Description { get; set; }
 
     [Required]
-    public required DateTime StartDate { get; set; }
+    public required DateTime Start_date { get; set; }
 
     [Required]
-    public required DateTime EndDate { get; set; }
+    public required DateTime End_date { get; set; }
 
     [Required]
     public required int CompanyId { get; set; }

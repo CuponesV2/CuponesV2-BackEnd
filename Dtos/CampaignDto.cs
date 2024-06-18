@@ -8,9 +8,9 @@ public class CampaignDto
 
     public string? Description { get; set; }
 
-    public DateTime? StartDate { get; set; }
+    public DateTime? Start_date { get; set; }
 
-    public DateTime? EndDate { get; set; }
+    public DateTime? End_date { get; set; }
 
     public int? CompanyId { get; set; }
 }
