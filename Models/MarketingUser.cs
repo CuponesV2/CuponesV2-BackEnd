@@ -19,5 +19,10 @@ namespace Cupones.Models
 
         [JsonIgnore]
         public List<UserRole>? UserRoles { get; set; }
+
+        [JsonIgnore]
+        public List<Coupon>? Coupons { get; set; }
+
+
     }
 }

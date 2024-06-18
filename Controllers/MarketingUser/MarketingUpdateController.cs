@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Cupones.Dtos;
 using Cupones.Services;
 
-namespace Cupones.Controllers
+namespace Cupones.AddControllers
 {
     [ApiController]
     [Route("api/marketingusers/update")]
