@@ -12,14 +12,16 @@ namespace Cupones.AddControllers
     public class MarketplaceCreateController : ControllerBase
     {
         private readonly IMarketplaceUserRepository _marketplaceUserRepository;
+        private readonly SlackNotifier _slackNotifier;
 
-        public MarketplaceCreateController(IMarketplaceUserRepository marketplaceUserRepository)
+        public MarketplaceCreateController(IMarketplaceUserRepository marketplaceUserRepository, SlackNotifier slackNotifier)
         {
             _marketplaceUserRepository = marketplaceUserRepository;
+            _slackNotifier = slackNotifier;
         }
 
         [HttpPost]
-        public IActionResult CreateMarketplaceUser(MarketplaceUser marketplaceUser)
+        public async Task<IActionResult> CreateMarketplaceUser(MarketplaceUser marketplaceUser)
         {
             if (marketplaceUser == null)
             {
@@ -32,6 +34,7 @@ namespace Cupones.AddControllers
 
             } catch (Exception ex)
             {
+                await _slackNotifier.NotifyAsync(ex.StackTrace);
                 return StatusCode(500, $"Error al crear el usuario de marketplace: {ex.Message}");
             }
         }
