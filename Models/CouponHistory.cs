@@ -9,7 +9,9 @@ namespace Cupones.Models
         public int Id { get; set; }
 
         [Required]
-        public int CouponId { get; set; }
+        public int Coupon_id { get; set; }
+
+        public Coupon? Coupon { get; set; }
 
         [Required]
         public DateOnly Change_date { get; set; }

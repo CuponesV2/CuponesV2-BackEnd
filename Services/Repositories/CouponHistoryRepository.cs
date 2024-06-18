@@ -16,10 +16,10 @@ namespace Cupones.Services
         {
             _context = context;
         }
-         public void Create(int couponId, CouponHistory couponHistory)
+         public void Create(int coupon_id, CouponHistory couponHistory)
 {
     // Encuentra el cupón existente por ID.
-    var coupon = _context.Coupons.Find(couponId);
+    var coupon = _context.Coupons.Find(coupon_id);
     if (coupon == null)
     {
         throw new Exception("Cupón no encontrado.");
@@ -49,7 +49,7 @@ namespace Cupones.Services
     }
 
     // Configura el ID del cupón en el objeto couponHistory.
-    couponHistory.CouponId = couponId;
+    couponHistory.Coupon_id = coupon_id;
 
     // Agrega el nuevo historial de cupón a la base de datos.
     _context.CouponHistories.Add(couponHistory);
