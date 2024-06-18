@@ -39,6 +39,7 @@ builder.Services.AddScoped<ICouponRepository, CouponRepository>();
 builder.Services.AddScoped<ICouponHistoryRepository, CouponHistoryRepository>();
 builder.Services.AddScoped<ICouponUsageRepository, CouponUsageRepository>();
 
+
 // Builder para JWT con el token
 builder.Services.AddAuthentication(opt =>
 {
