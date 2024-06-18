@@ -1,5 +1,4 @@
 using System.ComponentModel.DataAnnotations;
-using System.Text.Json.Serialization;
 
 namespace Cupones.Models
 {
@@ -13,7 +12,7 @@ namespace Cupones.Models
 
         public Coupon? Coupon { get; set; }
 
-         [Required]
+        [Required]
         public int UserMarketplace_id { get; set; }
 
         public MarketingUser? MarketingUser { get; set; }
@@ -23,7 +22,5 @@ namespace Cupones.Models
 
         [Required]
         public string Transaction_amount { get; set; }
- 
-
     }
 }
