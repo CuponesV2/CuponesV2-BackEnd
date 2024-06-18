@@ -45,18 +45,18 @@ namespace Cupones.Models
         [Required]
         public string Code { get; set; }
 
-        // [Required]
-        // public int CampaignId { get; set; }
+         [Required]
+        public int CampaignId { get; set; }
 
-/*         public Campaign? Campaign { get; set; }
- */
+        public Campaign? Campaign { get; set; }
+ 
         [JsonIgnore]
         public List<CouponHistory>? CouponHistory { get; set; }
 
-        // [JsonIgnore]
-        // public List<CouponUsage>? CouponUsage { get; set; }
-
-        // [JsonIgnore]
-        // public List<PurchaseCoupon>? PurchaseCoupon { get; set; }
+        [JsonIgnore]
+        public List<CouponUsage>? CouponUsage { get; set; }
+ 
+        [JsonIgnore]
+         public List<PurchaseCoupon>? PurchaseCoupon { get; set; } 
     }
 }
