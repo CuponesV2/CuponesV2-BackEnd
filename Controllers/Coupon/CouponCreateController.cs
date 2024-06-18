@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Cupones.Models;
 using Cupones.Services;
 
-namespace Cupones.Controllers
+namespace Cupones.AddControllers
 {
     [ApiController]
     [Route("api/coupons/create")]
@@ -33,4 +33,3 @@ namespace Cupones.Controllers
         }
     }
 }
-
