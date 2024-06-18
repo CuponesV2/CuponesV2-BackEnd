@@ -14,5 +14,7 @@ namespace Cupones.Data
         public DbSet<UserRole> UserRole { get; set; }
 
         public DbSet<MarketplaceUser> MarketplaceUsers { get; set; }
+
+        public DbSet<Coupon> Coupons { get; set; }
     }
 }

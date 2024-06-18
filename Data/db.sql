@@ -7,6 +7,24 @@ CREATE TABLE Companies (
     Nit Varchar(25) UNIQUE
 );
 
+INSERT INTO
+    Companies (Name, Logo, Nit)
+VALUES (
+        'Company A',
+        'logo_a.png',
+        '123456789'
+    ),
+    (
+        'Company B',
+        'logo_b.png',
+        '987654321'
+    ),
+    (
+        'Company C',
+        'logo_c.png',
+        '567890123'
+    );
+
 -- Creación de Campaigns
 CREATE TABLE Campaigns (
     Id INT AUTO_INCREMENT PRIMARY KEY,
@@ -51,13 +69,13 @@ VALUES (
     );
 
 -- Creación de Role
-CREATE TABLE Role (
+CREATE TABLE Roles (
     Id INT AUTO_INCREMENT PRIMARY KEY,
     Name Varchar(55)
 );
 
 --Insersion de datos en la tabla Role
-INSERT INTO Role (Name) VALUES ("Asesor"), ("Administrador");
+INSERT INTO Roles (Name) VALUES ("Asesor"), ("Administrador");
 
 -- Creación de UserRole
 CREATE TABLE UserRole (
@@ -65,7 +83,7 @@ CREATE TABLE UserRole (
     User_id INT,
     Role_id INT,
     FOREIGN KEY (User_id) REFERENCES MarketingUsers (ID),
-    FOREIGN KEY (Role_id) REFERENCES Role (Id)
+    FOREIGN KEY (Role_id) REFERENCES Roles (Id)
 );
 
 INSERT INTO
@@ -76,7 +94,7 @@ VALUES (1, 2),
     (1, 2);
 
 -- Creación de Coupon
-CREATE TABLE Coupon (
+CREATE TABLE Coupons (
     Id INT AUTO_INCREMENT PRIMARY KEY,
     Name VARCHAR(100),
     Description VARCHAR(255),
@@ -96,16 +114,15 @@ CREATE TABLE Coupon (
 );
 
 -- Creación de CouponHistory
-CREATE TABLE CouponHistory (
+CREATE TABLE CouponHistory(
     Id INT AUTO_INCREMENT PRIMARY KEY,
     Coupon_id INT,
     Change_date Date,
     Field_changed Varchar(100),
     Old_value Varchar(100),
     New_value Varchar(100),
-    FOREIGN KEY (Coupon_id) REFERENCES Coupon (Id)
+    FOREIGN KEY (Coupon_id) REFERENCES Coupons (Id)
 );
-
 
 -- Creación de MarketplaceUsers
 CREATE TABLE MarketplaceUsers (
@@ -123,13 +140,12 @@ CREATE TABLE CouponUsage (
     UserMarketplace_id INT,
     usage_date Date,
     transaction_amount INT,
-    Foreign Key (Coupon_id) REFERENCES Coupon (Id),
+    Foreign Key (Coupon_id) REFERENCES Coupons (Id),
     Foreign Key (UserMarketplace_id) REFERENCES MarketplaceUsers (Id)
 );
 
-
 -- Creación de Purchase
-CREATE TABLE Purchase (
+CREATE TABLE Purchases (
     Id INT AUTO_INCREMENT PRIMARY KEY,
     UserMarketplace_id INT,
     Date date,
@@ -142,6 +158,8 @@ CREATE TABLE PurchaseCoupon (
     Id INT AUTO_INCREMENT PRIMARY KEY,
     Purchase_id INT,
     Coupon_id INT,
-    Foreign Key (Purchase_id) REFERENCES Purchase (Id),
-    Foreign Key (Coupon_id) REFERENCES Coupon (Id)
+    Foreign Key (Purchase_id) REFERENCES Purchases (Id),
+    Foreign Key (Coupon_id) REFERENCES Coupons (Id)
 );
+
+
