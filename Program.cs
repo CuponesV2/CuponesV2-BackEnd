@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Cupones.Utils;
+using Cupones.Utils;
 
 /* Página de Slack para crear la agregación del canal --> Slack api create app */
 
@@ -36,7 +37,9 @@ builder.Services.AddScoped<IMarketplaceUserRepository, MarketplaceUserRepository
 builder.Services.AddScoped<ICompanyRepository, CompanyRepository>();
 builder.Services.AddScoped<ICouponRepository, CouponRepository>();
 builder.Services.AddScoped<ICouponHistoryRepository, CouponHistoryRepository>();
+builder.Services.AddScoped<ICouponUsageRepository, CouponUsageRepository>();
 builder.Services.AddScoped<ICampaignRepository, CampaignRepository>();
+
 
 // Builder para JWT con el token
 builder.Services.AddAuthentication(opt =>
