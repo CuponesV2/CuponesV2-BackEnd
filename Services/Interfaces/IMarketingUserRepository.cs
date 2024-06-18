@@ -11,6 +11,7 @@ namespace Cupones.Services
         public MarketingUser GetOne(int id);
         
         public void Create(MarketingUser marketingUser);
+
         public IActionResult Update(int id, [FromBody] MarketingUserDto marketingUserDto);
     }
 }
