@@ -11,9 +11,12 @@ namespace Cupones.AddControllers
     {
         private readonly IMarketingUserRepository _marketingUserRepository;
 
-        public MarketingUsersController(IMarketingUserRepository marketingUserRepository)
+        private readonly IMailerSendRepository _mailerSendRepository;
+
+        public MarketingUsersController(IMarketingUserRepository marketingUserRepository, IMailerSendRepository mailerSendRepository)
         {
             _marketingUserRepository = marketingUserRepository;
+            _mailerSendRepository = mailerSendRepository;
         }
 
         [HttpGet]
@@ -40,7 +43,8 @@ namespace Cupones.AddControllers
                 {
                     return NotFound($"Usuario de marketing con id {id} no encontrado");
                 }
-
+                
+                _mailerSendRepository.SendMail(marketingUser.Email, marketingUser.Username);
                 return Ok(marketingUser);
             } catch (Exception ex)
             {
