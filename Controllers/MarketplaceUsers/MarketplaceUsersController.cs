@@ -17,11 +17,11 @@ namespace Cupones.AddControllers
         }
 
         [HttpGet]
-        public IActionResult GetMarketplaceUsers()
+        public IActionResult GetMarketplaceUsers([FromQuery]int? page)
         {
             try
             {
-                return Ok(_marketplaceUserRepository.GetAll());
+                return Ok(_marketplaceUserRepository.GetAll(page));
 
             }
             catch (Exception ex)
