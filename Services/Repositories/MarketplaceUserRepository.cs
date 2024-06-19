@@ -13,15 +13,30 @@ public class MarketplaceUserRepository : IMarketplaceUserRepository
 
     private readonly IMapper _mapper;
 
+    private readonly int records = 5;
+
     public MarketplaceUserRepository(CuponesContext context, IMapper mapper)
     {
         _context = context;
         _mapper = mapper;
     }
 
-    public IEnumerable<MarketplaceUser> GetAll()
+    public object GetAll([FromQuery] int? page)
     {
-        return _context.MarketplaceUsers.ToList();
+        int _page = page ?? 1;
+            decimal totalRecords = _context.MarketplaceUsers.Count();
+            int totalPages = Convert.ToInt32(Math.Ceiling(totalRecords / records));
+            
+            var MarketplaceUsers = _context.MarketplaceUsers
+                .Skip((_page - 1) * records)
+                .Take(records)
+                .ToList();
+        
+            var data = new { pages = totalPages,
+                            currentPage = _page,
+                            data = MarketplaceUsers};
+            
+            return data;
     }
 
     public MarketplaceUser GetOne(int id)
