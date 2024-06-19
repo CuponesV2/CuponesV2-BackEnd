@@ -1,16 +1,18 @@
 using Microsoft.AspNetCore.Mvc;
 using Cupones.Dtos;
 using Cupones.Services;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Cupones.Controllers
 {
     [ApiController]
     [Route("api/marketplaceUsers/update")]
-    public class MarketplaceUsersUpdateController : ControllerBase
+    [Authorize]
+    public class MarketplaceUpdateController : ControllerBase
     {
         private readonly IMarketplaceUserRepository _marketplaceUserRepository;
 
-        public MarketplaceUsersUpdateController(IMarketplaceUserRepository marketplaceUserRepository)
+        public MarketplaceUpdateController(IMarketplaceUserRepository marketplaceUserRepository)
         {
             _marketplaceUserRepository = marketplaceUserRepository;
         }
