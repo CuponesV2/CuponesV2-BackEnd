@@ -6,7 +6,7 @@ namespace Cupones.Services
 {
     public interface IMarketingUserRepository
     {
-        public IEnumerable<MarketingUser> GetAll();
+        public object GetAll([FromQuery] int? page);
         
         public MarketingUser GetOne(int id);
         

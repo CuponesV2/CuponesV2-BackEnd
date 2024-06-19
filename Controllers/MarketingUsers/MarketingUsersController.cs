@@ -12,6 +12,8 @@ namespace Cupones.AddControllers
         private readonly IMarketingUserRepository _marketingUserRepository;
         private readonly SlackNotifier _slackNotifier;
 
+        private readonly int records = 5;
+
         public MarketingUsersController(IMarketingUserRepository marketingUserRepository, SlackNotifier slackNotifier)
         {
             _marketingUserRepository = marketingUserRepository;
@@ -19,11 +21,11 @@ namespace Cupones.AddControllers
         }
 
         [HttpGet]
-        public IActionResult GetMarketingUsers()
+        public IActionResult GetMarketingUsers([FromQuery]int? page)
         {
             try
             {
-                return Ok(_marketingUserRepository.GetAll());
+                return Ok(_marketingUserRepository.GetAll(page));
             }
             catch (Exception ex)
             {
