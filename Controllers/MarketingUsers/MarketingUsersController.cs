@@ -11,11 +11,13 @@ namespace Cupones.AddControllers
     {
         private readonly IMarketingUserRepository _marketingUserRepository;
         private readonly SlackNotifier _slackNotifier;
-
-        public MarketingUsersController(IMarketingUserRepository marketingUserRepository, SlackNotifier slackNotifier)
+        private readonly IMailerSendRepository _mailerSendRepository;
+        public MarketingUsersController(IMarketingUserRepository marketingUserRepository, SlackNotifier slackNotifier, IMailerSendRepository mailerSendRepository)
         {
             _marketingUserRepository = marketingUserRepository;
             _slackNotifier = slackNotifier;
+            _mailerSendRepository = mailerSendRepository;
+
         }
 
         [HttpGet]
@@ -41,6 +43,7 @@ namespace Cupones.AddControllers
                 {
                     return NotFound($"Usuario de marketing con id {id} no encontrado");
                 }
+                _mailerSendRepository.SendMail(marketingUser.Email, marketingUser.Username);
                 return Ok(marketingUser);
             }
             catch (Exception ex)

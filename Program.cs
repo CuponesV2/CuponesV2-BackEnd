@@ -41,6 +41,7 @@ builder.Services.AddScoped<ICouponUsageRepository, CouponUsageRepository>();
 builder.Services.AddScoped<ICampaignRepository, CampaignRepository>();
 builder.Services.AddScoped<IPurchaseCouponRepository, PurchaseCouponRepository>();
 builder.Services.AddScoped<IPurchaseRepository, PurchaseRepository>();
+builder.Services.AddScoped<IMailerSendRepository, MailerSendRepository>();
 
 // Builder para JWT con el token
 builder.Services.AddAuthentication(opt =>
