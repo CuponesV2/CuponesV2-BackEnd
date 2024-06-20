@@ -179,5 +179,6 @@ CREATE TABLE PurchaseCoupons (
 INSERT INTO PurchaseCoupons (PurchaseId, CouponId) VALUES
     (1, 1),
     (2, 2);
+    
 
 
