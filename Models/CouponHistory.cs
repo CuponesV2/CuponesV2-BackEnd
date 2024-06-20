@@ -9,7 +9,7 @@ namespace Cupones.Models
         public int Id { get; set; }
 
         [Required]
-        public int Coupon_id { get; set; }
+        public int CouponId { get; set; }
 
         public Coupon? Coupon { get; set; }
 
@@ -17,13 +17,13 @@ namespace Cupones.Models
         public DateOnly Change_date { get; set; }
 
         [Required]
-        public string Field_Changed { get; set; }
+        public string Field_changed { get; set; }
 
         [Required]
-        public string Old_Value { get; set; }
+        public string Old_value { get; set; }
 
         [Required]
-        public string New_Value { get; set; }
+        public string New_value { get; set; }
 
     }
 }
