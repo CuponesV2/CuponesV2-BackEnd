@@ -5,7 +5,6 @@ namespace Cupones.Models
 {
     public class MarketingUser
     {
-        [Required]
         public int Id { get; set; }
 
         [Required]
@@ -21,8 +20,6 @@ namespace Cupones.Models
         public List<UserRole>? UserRoles { get; set; }
 
         [JsonIgnore]
-        public List<Coupon>? Coupons { get; set; }
-
-
+        public List<Coupon>? Coupon { get; set; }
     }
 }

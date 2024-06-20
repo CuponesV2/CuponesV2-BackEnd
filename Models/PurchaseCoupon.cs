@@ -9,11 +9,11 @@ namespace Cupones.Models
         public int Id { get; set; }
 
         [Required]
-        public int Purchase_id { get; set; }
+        public int PurchaseId { get; set; }
         public Purchase? Purchase { get; set; }
 
         [Required]
-        public int Coupon_id { get; set; }
+        public int CouponId { get; set; }
         public Coupon? Coupon { get; set; }
     }
 }
