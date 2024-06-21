@@ -15,7 +15,7 @@ namespace Cupones.Models
         [Required]
         public int UserMarketplaceId { get; set; }
 
-        public MarketingUser? MarketingUser { get; set; }
+        public MarketplaceUser? MarketplaceUser { get; set; }
 
         [Required]
         public DateOnly Usage_date { get; set; }

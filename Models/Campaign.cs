@@ -26,6 +26,6 @@ public class Campaign
     public Company? Company { get; set; }
 
     [JsonIgnore]
-    public List<Coupon>? Coupons { get; set; }
+    public List<Coupon>? Coupon { get; set; }
 }
 

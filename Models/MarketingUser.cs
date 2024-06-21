@@ -8,7 +8,7 @@ namespace Cupones.Models
         public int Id { get; set; }
 
         [Required]
-        public string? Username { get; set; }
+        public string? UserName { get; set; }
 
         [Required]
         public string? Password { get; set; }
@@ -17,7 +17,7 @@ namespace Cupones.Models
         public string? Email { get; set; }
 
         [JsonIgnore]
-        public List<UserRole>? UserRoles { get; set; }
+        public List<UserRole>? UserRole { get; set; }
 
         [JsonIgnore]
         public List<Coupon>? Coupon { get; set; }
