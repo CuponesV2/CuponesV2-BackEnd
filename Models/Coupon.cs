@@ -37,7 +37,7 @@ namespace Cupones.Models
         [Required]
         public string Status { get; set; }
 
-        public int? CreatedBy { get; set; }
+        public int? MarketingUserId { get; set; }
 
         [Required]
         public string Code { get; set; }
@@ -48,13 +48,13 @@ namespace Cupones.Models
         public Campaign? Campaign { get; set; }
  
         [JsonIgnore]
-        public List<CouponHistory>? CouponHistories { get; set; }
+        public List<CouponHistory>? CouponHistory { get; set; }
 
         [JsonIgnore]
-        public List<CouponUsage>? CouponUsages { get; set; }
+        public List<CouponUsage>? CouponUsage { get; set; }
  
         [JsonIgnore]
-         public List<PurchaseCoupon>? PurchaseCoupons { get; set; } 
+         public List<PurchaseCoupon>? PurchaseCoupon { get; set; } 
          public MarketingUser? MarketingUser { get; set; }
     }
 }
