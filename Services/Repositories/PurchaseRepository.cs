@@ -18,6 +18,22 @@ namespace Cupones.Services
             _mapper = mapper;
         }
 
+        public IEnumerable<Purchase> GetAll()
+        {
+            return _context.Purchases
+                .Include(pc => pc.MarketplaceUser)
+                .ToList();
+        }
+
+        public Purchase GetOne(int id)
+        {
+            var purchase = _context.Purchases
+                .Include(pc => pc.MarketplaceUser)
+                .FirstOrDefault(p => p.Id == id);
+
+            return purchase;
+        }
+
         public void Create(Purchase purchase)
         {
             _context.Purchases.Add(purchase);

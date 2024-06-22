@@ -16,4 +16,7 @@ public class MarketplaceUser
 
     [Required]
     public required string Email { get; set; }
+
+    [JsonIgnore]
+    public List<Purchase>? Purchases { get; set; }
 }
