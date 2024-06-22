@@ -39,6 +39,19 @@ namespace Cupones.Services
             _context.Purchases.Add(purchase);
             _context.SaveChanges();
         }
+
+        public IActionResult Update(int id, PurchaseDto purchaseDto)
+        {
+            var purchase = _context.Purchases.Find(id);
+            if (purchase == null)
+            {
+                return new NotFoundResult();
+            }
+            _mapper.Map(purchaseDto, purchase);
+            _context.SaveChanges();
+            
+            return new OkObjectResult(purchase);
+        }
     }
 }
 

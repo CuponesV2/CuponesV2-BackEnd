@@ -25,6 +25,7 @@ builder.Services.AddCors(options =>
 
 //Registrar AutoMapper y sus perfiles
 builder.Services.AddAutoMapper(typeof(MarketingUpdateProfile));
+builder.Services.AddAutoMapper(typeof(PurchaseUpdateProfile));
 
 // Config DB
 builder.Services.AddDbContext<CuponesContext>(options =>
