@@ -5,11 +5,10 @@ namespace Cupones.Models
 {
     public class Purchase
     {
-        [Required]
         public int Id { get; set; }
 
         [Required]
-        public int UserMarketplaceId { get; set; }
+        public int MarketplaceUserId { get; set; }
         public MarketplaceUser? MarketplaceUser { get; set; }
 
         [Required]
