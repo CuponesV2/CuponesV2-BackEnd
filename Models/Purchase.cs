@@ -18,7 +18,7 @@ namespace Cupones.Models
         public int Amount { get; set; }
 
         [JsonIgnore]
-        public List<PurchaseCoupon>? PurchaseCoupons { get; set; }
+        public List<PurchaseCoupon>? PurchaseCoupon { get; set; }
     }
 }
 

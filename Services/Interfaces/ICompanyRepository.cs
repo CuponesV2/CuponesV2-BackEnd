@@ -6,7 +6,7 @@ namespace Cupones.Services
 {
     public interface ICompanyRepository
     {
-        public IEnumerable<Company> GetAll();
+        public object GetAll([FromQuery] int? page);
         
         public Company GetOne(int id);
         

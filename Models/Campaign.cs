@@ -15,13 +15,17 @@ public class Campaign
     public required string Description { get; set; }
 
     [Required]
-    public required DateTime Start_date { get; set; }
+    public required DateOnly Start_date { get; set; }
 
     [Required]
-    public required DateTime End_date { get; set; }
+    public required DateOnly End_date { get; set; }
 
     [Required]
     public required int CompanyId { get; set; }
 
     public Company? Company { get; set; }
+
+    [JsonIgnore]
+    public List<Coupon>? Coupon { get; set; }
 }
+

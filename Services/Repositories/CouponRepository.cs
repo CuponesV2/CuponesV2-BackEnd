@@ -26,7 +26,7 @@ namespace Cupones.Services
 
         public Coupon GetOne(int id)
         {
-            return _context.Coupons.Find(id);
+            return _context.Coupons.FirstOrDefault(u => u.Id == id);
         }
 
         public void Create(Coupon coupon)

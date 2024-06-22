@@ -5,7 +5,6 @@ namespace Cupones.Models
 {
     public class Coupon
     {
-        [Required]
         public int Id { get; set; }
 
         [Required]
@@ -38,14 +37,12 @@ namespace Cupones.Models
         [Required]
         public string Status { get; set; }
 
-        [Required]
-        public int Created_By { get; set; }
-        public MarketingUser?  MarketingUser { get; set; }
+        public int? MarketingUserId { get; set; }
 
         [Required]
         public string Code { get; set; }
 
-         [Required]
+        [Required]
         public int CampaignId { get; set; }
 
         public Campaign? Campaign { get; set; }
@@ -58,5 +55,7 @@ namespace Cupones.Models
  
         [JsonIgnore]
          public List<PurchaseCoupon>? PurchaseCoupon { get; set; } 
+         public MarketingUser? MarketingUser { get; set; }
     }
 }
+

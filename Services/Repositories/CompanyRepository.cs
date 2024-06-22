@@ -13,15 +13,30 @@ public class CompanyRepository : ICompanyRepository
 
     private readonly IMapper _mapper;
 
+    private readonly int records = 5;
+
     public CompanyRepository(CuponesContext context, IMapper mapper)
     {
         _context = context;
         _mapper = mapper;
     }
 
-    public IEnumerable<Company> GetAll()
+    public object GetAll([FromQuery] int? page)
     {
-        return _context.Companies.ToList();
+        int _page = page ?? 1;
+        decimal totalRecords = _context.Companies.Count();
+        int totalPages = Convert.ToInt32(Math.Ceiling(totalRecords / records));
+        
+        var companies = _context.Companies
+            .Skip((_page - 1) * records)
+            .Take(records)
+            .ToList();
+    
+        var data = new { pages = totalPages,
+                        currentPage = _page,
+                        data = companies};
+        
+        return data;
     }
 
     public Company GetOne(int id)

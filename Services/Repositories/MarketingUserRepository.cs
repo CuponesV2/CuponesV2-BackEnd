@@ -4,6 +4,7 @@ using Cupones.Models;
 using AutoMapper;
 using Cupones.Dtos;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace Cupones.Services
 {
@@ -12,15 +13,35 @@ namespace Cupones.Services
         private readonly CuponesContext _context;
         private readonly IMapper _mapper;
 
+        private readonly int records = 5;
+
         public MarketingUserRepository(CuponesContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
         }
 
-        public IEnumerable<MarketingUser> GetAll()
+        public object GetAll([FromQuery] int? page)
         {
-            return _context.MarketingUsers.ToList();
+            int _page = page ?? 1;
+            decimal totalRecords = _context.MarketingUsers.Count();
+            int totalPages = Convert.ToInt32(Math.Ceiling(totalRecords / records));
+            
+            var marketingUsers = _context.MarketingUsers
+                .Skip((_page - 1) * records)
+                .Take(records)
+                .ToList();
+        
+            var data = new { pages = totalPages,
+                            currentPage = _page,
+                            data = marketingUsers};
+            
+            return data;
+        }
+
+        public int Count()
+        {
+            return _context.MarketingUsers.Count();
         }
 
         public MarketingUser GetOne(int id)

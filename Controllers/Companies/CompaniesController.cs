@@ -17,11 +17,11 @@ namespace Cupones.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetCompanies()
+        public IActionResult GetCompanies([FromQuery] int? page)
         {
             try
             {
-                return Ok(_companyRepository.GetAll());
+                return Ok(_companyRepository.GetAll(page));
             }
             catch (Exception ex)
             {

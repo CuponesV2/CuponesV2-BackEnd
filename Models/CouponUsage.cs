@@ -8,19 +8,19 @@ namespace Cupones.Models
         public int Id { get; set; }
 
         [Required]
-        public int Coupon_id { get; set; }
+        public int CouponId { get; set; }
 
         public Coupon? Coupon { get; set; }
 
         [Required]
-        public int UserMarketplace_id { get; set; }
+        public int UserMarketplaceId { get; set; }
 
-        public MarketingUser? MarketingUser { get; set; }
+        public MarketplaceUser? MarketplaceUser { get; set; }
 
         [Required]
         public DateOnly Usage_date { get; set; }
 
         [Required]
-        public string Transaction_amount { get; set; }
+        public int Transaction_amount { get; set; }
     }
 }

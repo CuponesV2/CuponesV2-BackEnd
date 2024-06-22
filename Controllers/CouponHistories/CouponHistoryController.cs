@@ -12,13 +12,15 @@ namespace Cupones.AddControllers
     public class CouponHistoryController : ControllerBase
     {
         private readonly ICouponHistoryRepository _couponHistoryRepository;
+        private readonly SlackNotifier _slackNotifier;
 
-        public CouponHistoryController(ICouponHistoryRepository couponHistoryRepository)
+        public CouponHistoryController(ICouponHistoryRepository couponHistoryRepository, SlackNotifier slackNotifier)
         {
             _couponHistoryRepository = couponHistoryRepository;
+            _slackNotifier = slackNotifier;
         }
         [HttpPost("{couponId}")]
-        public IActionResult CreateCouponHistory(int couponId, [FromBody] CouponHistory couponHistory)
+        public async Task<IActionResult> CreateCouponHistory(int couponId, [FromBody] CouponHistory couponHistory)
         {
             if (couponHistory == null)
             {
@@ -31,6 +33,7 @@ namespace Cupones.AddControllers
                 
             } catch (Exception ex)
             {
+                await _slackNotifier.NotifyAsync(ex.StackTrace);
                 return StatusCode(500, $"Error al crear el historial del cupón: {ex.Message}");
             }
         }

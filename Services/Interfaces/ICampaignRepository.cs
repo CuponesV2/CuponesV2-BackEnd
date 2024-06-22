@@ -6,7 +6,7 @@ namespace Cupones.Services
 {
     public interface ICampaignRepository
     {
-        public IEnumerable<Campaign> GetAll();
+        public object GetAll([FromQuery] int? page);
         
         public Campaign GetOne(int id);
         
