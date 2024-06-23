@@ -33,4 +33,13 @@ public class PurchaseCouponRepository : IPurchaseCouponRepository
             .Include(pc => pc.Coupon)
             .FirstOrDefault(pc => pc.Id == id);
     }
+
+    public IEnumerable<PurchaseCoupon> GetPurchasesByCoupon(int couponId)
+    {
+        return _context.PurchaseCoupons
+            .Include(pc => pc.Purchase)
+            .Include(pc => pc.Coupon)
+            .Where(pc => pc.CouponId == couponId)
+            .ToList();
+    }
 }

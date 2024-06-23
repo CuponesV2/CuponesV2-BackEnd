@@ -6,8 +6,8 @@ namespace Cupones.Services
 {
     public interface IPurchaseCouponRepository
     {
-         public IEnumerable<PurchaseCoupon> GetAll();
-          public PurchaseCoupon GetOne(int id);
-
+        public IEnumerable<PurchaseCoupon> GetAll();
+        public PurchaseCoupon GetOne(int id);
+        public IEnumerable<PurchaseCoupon> GetPurchasesByCoupon(int couponId);
     }
 }
