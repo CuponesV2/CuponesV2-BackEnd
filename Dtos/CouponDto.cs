@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace Cupones.Dtos
 {
@@ -43,5 +45,10 @@ namespace Cupones.Dtos
 
         public int? CampaignId { get; set; }
 
+        [JsonIgnore]
+        public List<CouponHistoryDto>? CouponHistoryDto { get; set; }
+
     }
 }
+
+
